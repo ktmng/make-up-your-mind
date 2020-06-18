@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>make-up your mind</title>
+    <link rel = "icon" href="images/muym-icon.png" alt="icon"> 
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="modal.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <img id="muym-title" src="images/muym-title.png" alt="An image of the website's title, Make-Up Your Mind, and logo, a brain with eyelashes">
+
+  <form id="js-form">
+    <section id="searchterm-brand">
+      <label class="search-term" for="product-type" id="just-looking-at">Just Looking At</label>
+      <input class="product-type input" type="text" name="product-type" id="makeup-type" placeholder="Make-Up Type" list="product-type-list">
+        <datalist id="product-type-list">
+            <option value="Blush">
+            <option value="Bronzer">
+            <option value="Eyebrow">
+            <option value="Eyeliner">
+            <option value="Eyeshadow">
+            <option value="Foundation">
+            <option value="Lip Liner">
+            <option value="Lipstick">
+            <option value="Mascara">
+            <option value="Nail Polish">
+        </datalist>
+
+      <label class="search-term" for="brand" id="from">From</label>
+      <input class="brand input" type="text" name="brand" id="brand" placeholder="Brand" list="brand-list">
+        <datalist id="brand-list">
+            <option value="Almay">
+            <option value="Alva">
+            <option value="Anna Sui">
+            <option value="Annabelle">
+            <option value="Benefit">
+            <option value="Boosh">
+            <option value="Burt's Bees">
+            <option value="Butter London">
+            <option value="C'est Moi">
+            <option value="Cargo Cosmetics">
+            <option value="China Glaze">
+            <option value="Clinique">
+            <option value="Coastal Classic Creation">
+            <option value="Colourpop">
+            <option value="Covergirl">
+            <option value="Dalish">
+            <option value="Deciem">
+            <option value="Dior">
+            <option value="Dr. Hauschka">
+            <option value="e.l.f">
+            <option value="Essie">
+            <option value="Fenty">
+            <option value="Glossier">
+            <option value="Green People">
+            <option value="Iman">
+            <option value="L'oreal">
+            <option value="Lotus Cosmetics USA">
+            <option value="Maia's Mineral Galaxy">
+            <option value="Marcelle">
+            <option value="Marienatie">
+            <option value="Maybelline">
+            <option value="Milani">
+            <option value="Mineral Fusion">
+            <option value="Misa">
+            <option value="Mistura">
+            <option value="Moov">
+            <option value="Nudus">
+            <option value="NYX">
+            <option value="ORLY">
+            <option value="Pacifica">
+            <option value="Penny Lane Organics">
+            <option value="Physicians Formula">
+            <option value="Piggy Paint">
+            <option value="Pure Anada">
+            <option value="Rejuva Minerals">
+            <option value="Revlon">
+            <option value="Sally B's Skin Yummies">
+            <option value="Salon Perfect">
+            <option value="Sante">
+            <option value="Sinful Colours">
+            <option value="Smashbox">
+            <option value="Stila">
+            <option value="Suncoat">
+            <option value="w3llpeople">
+            <option value="wet n wild">
+            <option value="Zorah">
+            <option value="Zorah Biocosmetiques">
+        </datalist>
+    </section>
+
+    <section id="min-max">
+      <label class="search-term" for="min-price" id="min">Minimum $</label>
+      <input class="min-price input" type="number" name="min-price" id="min-price-input" placeholder="0">
+
+      <label class="search-term" for="max-price" id="max">Maximum $</label>
+      <input class="max-price input" type="number" name="max-price" id="max-price-input" placeholder="25">
+    </section>
+
+      <input id="submit-btn" type="submit" value="Show Me The Make-Up">
+
+  </form>
+
+    <p id="js-error-message" class="error-message"></p>
+
+    <section id="yt-results" class="hidden">
+      <h2 id="yt-results-title">⋯ Videos ⋯</h2>
+      <h2 id="sorry-msg-yt"></h2>
+      <ul id="yt-results-list">
+      </ul>
+    </section>
+
+    <section id="results" class="hidden">
+      <h2 id="results-title">⋯ Products ⋯</h2>
+      <h2 id="sorry-msg"></h2>
+      <ul id="results-list">
+      </ul>
+    </section>
+  
+    <!-- the modal -->
+    <div id="youtubeModal">
+      <!-- modal contents -->
+      <div class="modal-content">
+        <span class="videoClose">&times;</span>
+      </div>
+    </div>
+    
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+
+  </body>
+</html>

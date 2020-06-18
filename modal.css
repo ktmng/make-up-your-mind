@@ -1,0 +1,63 @@
+*{
+  box-sizing: border-box;
+}
+
+/* the modal (transparent black background) */
+#youtubeModal {
+  display: none; /* hidden by default */
+  position: fixed; /* stay in place */
+  z-index: 1; /* sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  background-color: rgb(0, 0, 0, 0.7);
+}
+
+/* modal content */
+.modal-content {
+//border: 3px solid red;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-itmes: center;
+}
+
+/*the iframe*/
+.responsive-iframe {
+  width: 75%;
+  height: 75%;
+  display: flex; 
+  align-self: center;
+  box-shadow: 0px 0px 8px 8px rgb(255, 255, 255);
+}
+
+/* close the modal */
+.videoClose {
+  color: rgb(255, 255, 255, 0.85);
+  border: 3px solid rgb(255, 255, 255, 0.85);
+  border-radius: 100%;
+  background-color: rgb(0, 0, 0, 0.8);
+  font-size: 25px;
+  font-weight: bolder;
+  width: 40px;
+  height: 40px;
+  line-height: 35px; /*vert center the x*/
+  text-align: center; /*horz center the x*/
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.videoClose:hover, .videoClose:focus {
+  color: rgb(0, 0, 0, 0.8);
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255, 0.65);
+  font-weight: bolder;
+  text-decoration: none;
+  cursor: pointer;
+}
