@@ -41,4 +41,4 @@ Users can click the video thumbanils to display a pop-up video.
 * View videos relevant to user's search
 * Watch videos that are displayed as results
 
-## [Live Demo](https://developers.google.com/youtube/v3/getting-started)
+## [Live Demo](https://ktmng.github.io/make-up-your-mind/)
