@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 body {
   font-family: 'Comfortaa', cursive;
@@ -43,9 +42,8 @@ input::-webkit-calendar-picker-indicator {
 }
 
 
-/* START OF MOBILE VER --- START OF MOBILE VER ---  START OF MOBILE VER --- */
+
 @media screen and (max-width: 420px) {
-/* START OF MOBILE VER --- START OF MOBILE VER ---  START OF MOBILE VER --- */
 
 #muym-title {
   width: 80%;
@@ -98,16 +96,16 @@ input::-webkit-calendar-picker-indicator {
   margin-right: auto;
   margin-bottom: 5px;
 }
-::placeholder { /*ph color when not selected or typing*/
+::placeholder {
   color: rgb(219, 177, 177);
   opacity: 1;
 }
-input:focus::placeholder { /*placeholder color when selected but not typing*/
+input:focus::placeholder {
   color: white;
   opacity: 1;
 }
-input:focus { /*while typing in input, will look like this*/
-  color:rgb(255, 255, 255); /*text color*/
+input:focus {
+  color:rgb(255, 255, 255);
   text-shadow: 1px 1px 1px rgb(80, 45, 22);
   background: rgb(194, 99, 99);
   font-family: 'Comfortaa', cursive;
@@ -121,7 +119,7 @@ input, select, textarea {
   font-weight: 900;
 }
 
-#submit-btn{
+#submit-btn {
   border: none;
   border-radius: 5px;
   background: rgb(118, 90, 72);
@@ -151,7 +149,7 @@ input, select, textarea {
   flex-direction: column;
   align-items: center;
 }
-#results-title, #yt-results-title{
+#results-title, #yt-results-title {
   font-family: 'Spartan', sans-serif;
   font-weight: 600;
   font-size: 25px;
@@ -166,7 +164,7 @@ input, select, textarea {
   margin: 15px 0px 15px 0px;
 }
 
-#results-list{ /*results ul*/
+#results-list {
   list-style-type: none;
   display: flex; 
   flex-direction: column;
@@ -265,7 +263,7 @@ input, select, textarea {
   text-shadow: 1px 1px 2px #ff8080ff;
 }
 
-#yt-results-list{
+#yt-results-list {
   list-style-type: none;
   display: flex; 
   flex-direction: column;
@@ -351,13 +349,12 @@ input, select, textarea {
 .thumbnail-img:hover, .thumbnail-img:active {
   box-shadow: 0px 0px 5px rgb(96, 61, 38);
 }
-/* END OF MOBILE VERSION --- END OF MOBILE VERSION --- END OF MOBILE VERSION --- */
-}
-/* END OF MOBILE VERSION --- END OF MOBILE VERSION --- END OF MOBILE VERSION --- */
 
-/* START OF TABLET VER --- START OF TABLET VER ---  START OF TABLET VER --- */
+}
+
+
+
 @media screen and (min-width: 421px) and (max-width: 710px) {
-/* START OF TABLET VER --- START OF TABLET VER ---  START OF TABLET VER --- */
 
 #muym-title {
   width: 65%;
@@ -413,16 +410,16 @@ input, select, textarea {
   height: 25px;
   padding-left: 5px;
 }
-::placeholder { /*ph color when not selected or typing*/
+::placeholder {
   color: rgb(219, 177, 177);
   opacity: 1;
 }
-input:focus::placeholder { /*placeholder color when selected but not typing*/
+input:focus::placeholder {
   color: white;
   opacity: 1;
 }
-input:focus { /*while typing in input, will look like this*/
-  color:rgb(255, 255, 255); /*text color*/
+input:focus {
+  color:rgb(255, 255, 255);
   text-shadow: 1px 1px 1px rgb(80, 45, 22);
   background: rgb(194, 99, 99);
   font-family: 'Comfortaa', cursive;
@@ -436,7 +433,7 @@ input, select, textarea {
   font-weight: 900;
 }
 
-#submit-btn{
+#submit-btn {
   border: none;
   border-radius: 5px;
   background: rgb(118, 90, 72);
@@ -467,7 +464,7 @@ input, select, textarea {
   flex-direction: column;
   align-items: center;
 }
-#results-title, #yt-results-title{
+#results-title, #yt-results-title {
   font-family: 'Spartan', sans-serif;
   font-weight: 600;
   font-size: 25px;
@@ -482,7 +479,7 @@ input, select, textarea {
   margin: 15px 0px 15px 0px;
 }
 
-#results-list{ /*results ul*/
+#results-list {
   list-style-type: none;
   display: flex; 
   flex-direction: column;
@@ -581,7 +578,7 @@ input, select, textarea {
   text-shadow: 1px 1px 2px #ff8080ff;
 }
 
-#yt-results-list{
+#yt-results-list {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -668,13 +665,12 @@ input, select, textarea {
 .thumbnail-img:hover, .thumbnail-img:active {
   box-shadow: 0px 0px 5px rgb(96, 61, 38);
 }
-/* END OF TABLET VERSION --- END OF TABLET VERSION --- END OF TABLET VERSION --- */
-}
-/* END OF TABLET VERSION --- END OF TABLET VERSION --- END OF TABLET VERSION --- */
 
-/* START OF WEB VER --- START OF WEB VER ---  START OF WEB VER --- */
+}
+
+
+
 @media screen and (min-width: 711px) {
-/* START OF WEB VER --- START OF WEB VER ---  START OF WEB VER --- */
 
 #muym-title {
   width: 60%;
@@ -700,7 +696,7 @@ input, select, textarea {
   justify-content: space-evenly;
   align-content: center;
 }
-#searchterm-brand{
+#searchterm-brand {
   margin: 0px auto 10px auto;
 }
 #min-max {
@@ -727,16 +723,16 @@ input, select, textarea {
   height: 25px;
   padding-left: 5px;
 }
-::placeholder { /*ph color when not selected or typing*/
+::placeholder {
   color: rgb(219, 177, 177);
   opacity: 1;
 }
-input:focus::placeholder { /*placeholder color when selected but not typing*/
+input:focus::placeholder {
   color: white;
   opacity: 1;
 }
-input:focus { /*while typing in input, will look like this*/
-  color:rgb(255, 255, 255); /*text color*/
+input:focus {
+  color:rgb(255, 255, 255);
   text-shadow: 1px 1px 1px rgb(80, 45, 22);
   background: rgb(194, 99, 99);
   font-family: 'Comfortaa', cursive;
@@ -750,7 +746,7 @@ input, select, textarea {
   font-weight: 900;
 }
 
-#submit-btn{
+#submit-btn {
   border: none;
   border-radius: 5px;
   background: rgb(118, 90, 72);
@@ -909,7 +905,7 @@ input, select, textarea {
   text-shadow: 1px 1px 2px #ff8080ff;
 }
 
-#yt-results-list{
+#yt-results-list {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -996,11 +992,11 @@ input, select, textarea {
 .thumbnail-img:hover, .thumbnail-img:active {
   box-shadow: 0px 0px 5px rgb(96, 61, 38);
 }
-/* END OF WEB VER --- END OF WEB VER ---  END OF WEB VER --- */
-}
-/* END OF WEB VER --- END OF WEB VER ---  END OF WEB VER --- */
 
-/* EXTRA LARGE SCREENS --- EXTRA LARGE SCREENS --- EXTRA LARGE SCREENS */
+}
+
+
+
 @media screen and (min-width: 900px) {
   #results-list {
     list-style-type: none;
@@ -1013,4 +1009,112 @@ input, select, textarea {
     margin: 0px;
   }
 }
-/* EXTRA LARGE SCREENS --- EXTRA LARGE SCREENS --- EXTRA LARGE SCREENS */
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#landing-page-title {
+  width: 40%;
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+  position: relative;
+  animation: move-title 4s forwards;
+}
+@keyframes move-title {
+  0% {top: -100vh;}
+  100% {top: 10vh;}
+}
+#landing-page-first-p {
+  color: rgb(234, 105, 105);
+  text-shadow: 1px 1px 2px rgb(234, 105, 105);
+  font-size: 16px;
+  text-align: center;
+
+  width: 65%;
+  height: 100%;
+  margin: auto;
+
+  position: relative;
+  animation: move-first-p 5s forwards;
+}
+@keyframes move-first-p {
+  0% {top: -100vh;}
+  50% {top: 10vh;}
+  100% {top: 13vh;}
+}
+#landing-page-second-p {
+  color: rgb(96, 61, 38);
+  text-shadow: 1px 1px 2px rgb(96, 61, 38);
+  font-size: 16px;
+  text-align: center;
+
+  width: 65%;
+  height: 100%;
+  margin: auto;
+
+  position: relative;
+  animation: move-second-p 4s forwards;
+}
+@keyframes move-second-p {
+  0% {top: -100vh;}
+  50% {top: 13vh;}
+  100% {top: 16vh;}
+}
+#lets-go-btn {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgb(96, 61, 38);
+  text-shadow: 1px 1px 2px rgb(96, 61, 38);
+  font-size: 16px;
+  text-align: center;
+
+  width: 65%;
+  height: 100%;
+  margin: auto;
+
+  position: relative;
+  animation: move-second-p 4s forwards;
+}
+
+#lets-go-btn {
+  border: 3px solid rgb(118, 90, 72);
+  border-radius: 5px;
+  background: rgb(255, 126, 126);
+  color: white;
+  text-shadow: 2px 2px 2px rgb(80, 45, 22);
+
+  font-family: 'Spartan', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+
+  width: 35%;
+  max-width: 275px;
+  height: 45px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7px;
+
+  position: relative;
+  animation: move-btn 3s forwards;
+}
+#lets-go-btn:focus, #lets-go-btn:hover {
+  cursor: pointer;
+  background: rgb(147, 118, 100);
+  border: 3px solid rgb(118, 90, 72);
+  color: white;
+  text-shadow: 2px 2px 2px rgb(80, 45, 22);
+}
+@keyframes move-btn {
+  0% {top: -100vh;}
+  50% {top: 16vh;}
+  100% {top: 19vh;}
+}

@@ -2,9 +2,6 @@
 
 const makeupURL = 'https://makeup-api.herokuapp.com/api/v1/products.json';
 
-//watch form 
-//prevent submit btn default 
-//collect values for user input
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
@@ -15,16 +12,14 @@ function watchForm() {
     getMakeUp(searchTerm, brand, minPrice, maxPrice);
     getYoutubeVideo(searchTerm, brand);
   });
-}
+};
 
-//format url 
 function formatQueryParams(params) {
   const queryItems = Object.keys(params)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
   return queryItems.join('&');
 }
 
-//get data from makeup heroku app api
 function getMakeUp(searchTerm, brand, minPrice, maxPrice) {
   const params = {
     product_type: searchTerm,
@@ -33,7 +28,7 @@ function getMakeUp(searchTerm, brand, minPrice, maxPrice) {
     price_less_than: maxPrice,
   };
   
-  const queryString = formatQueryParams(params)
+  const queryString = formatQueryParams(params);
   const url = makeupURL + '?' + queryString;
   console.log(url);
 
@@ -48,24 +43,18 @@ function getMakeUp(searchTerm, brand, minPrice, maxPrice) {
     .catch(err => {
       $('#js-error-message').text(` Oh No, Something went wrong w/ Getting the Products! ${err.message}`);
     });
-}
+};
 
-//show the data from makeup heroku app api
 function displayResults(responseJson) {
-  // if there are previous results, remove them
   console.log(responseJson);
   $('#results-list').empty();
   $('#sorry-msg').empty();
 
-  //if there are no results, display a msg
   if(!Object.keys(responseJson).length){
     $('#sorry-msg').append(`Sorry, No Products Found For That Make-Up and/or Brand`);
-  }
-  // iterate through the items array
+  };
+
   for (let i = 0; i < responseJson.length; i++){
-    
-    // for each makeup object in the items array, add a list item to the results 
-    //list with the full name, img, price, description, url
     $('#results-list').append(
       `<li class="each-product-result">
       <section class="product-info-no-description">
@@ -77,29 +66,24 @@ function displayResults(responseJson) {
       </section>
       <span class="product-description">${responseJson[i].description}</span>
       </li>`
-  )};
+    );
+  };
 
-  //display the results section  
   $('#results').removeClass('hidden');
-
-  //clear input after results load
-  $('#makeup-type').val('')
-  $('#brand').val('')
+  $('#makeup-type').val('');
+  $('#brand').val('');
   $('#min-price-input').val('');
   $('#max-price-input').val('');
 };
 
-//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv  YOUTUBE API vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv  YOUTUBE API vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv  YOUTUBE API vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
 
 const youtubeURL = 'https://www.googleapis.com/youtube/v3/search';
 
-//get data from youtube data api
 function getYoutubeVideo(searchTerm, brand) {
- const params = {
+  const params = {
     part:'snippet',
-    key:'AIzaSyCR1zVcnvVor0l3h3x8Zkx9X--58hZwJLk',
+    key:'AIzaSyBynB4nEDy3uiO5JETdKMCyKDIS0fmFNBk',
     q: searchTerm + brand + ' makeup',
     maxResults: 6,
     type: 'video',
@@ -108,7 +92,7 @@ function getYoutubeVideo(searchTerm, brand) {
     relevanceLanguage: 'en'
   };
 
-  const queryString = formatQueryParams(params)
+  const queryString = formatQueryParams(params);
   const url = youtubeURL + '?' + queryString;
   console.log(url);
 
@@ -125,7 +109,6 @@ function getYoutubeVideo(searchTerm, brand) {
     });
 };
 
-//show the data from youtube data api + call displayYoutubeModal(responseJson)
 function displayYoutubeResults(responseJson) {
   console.log(responseJson);
 
@@ -134,7 +117,7 @@ function displayYoutubeResults(responseJson) {
 
   if(!Object.keys(responseJson.items).length){
     $('#sorry-msg-yt').append(`Sorry, No Videos Found For That Make-Up and/or Brand`);
-  }
+  };
 
   for (let i = 0; i < responseJson.items.length; i++){
     $('#yt-results-list').append(
@@ -146,16 +129,13 @@ function displayYoutubeResults(responseJson) {
       <a class="channel-url"href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}" target=_blank>${responseJson.items[i].snippet.channelTitle}</a>
 
       <input class="thumbnail-img" type="image" src="${responseJson.items[i].snippet.thumbnails.high.url}"/>
-      </li>`)
+      </li>`
+    );
   };
 
   $('#yt-results').removeClass('hidden');
   displayYoutubeModal(responseJson);
 };
-
-//vvvvvvvvvvvvvvvvvv  POP-UP MODAL CONTAINING RESPECTIVE YT-VIDEO + CLOSE BUTTON vvvvvvvvvvvvvvvvvv
-//vvvvvvvvvvvvvvvvvv  POP-UP MODAL CONTAINING RESPECTIVE YT-VIDEO + CLOSE BUTTON vvvvvvvvvvvvvvvvvv
-//vvvvvvvvvvvvvvvvvv  POP-UP MODAL CONTAINING RESPECTIVE YT-VIDEO + CLOSE BUTTON vvvvvvvvvvvvvvvvvv
 
 function displayYoutubeModal(responseJson) {
   for (let i = 0; i < responseJson.items.length; i++){
@@ -194,4 +174,173 @@ function displayYoutubeModal(responseJson) {
   };
 };
 
-$(watchForm);
+function generateLandingPage() { 
+  return `
+  <section class="landing-page">
+
+    <img id="landing-page-title" src="images/muym-title.png" alt=""An image of the website's title, Make-Up Your Mind, and logo, a brain with eyelashes">
+
+    <p class="landing-page-paragraph" id="landing-page-first-p">
+    Combining online shopping and watching Youtube videos 
+    <br>
+    for make-up lovers
+    </p>
+
+    <p class="landing-page-paragraph" id="landing-page-second-p">
+    Search for make-up products by type, brand, and price. 
+    <br>
+    Then, spend time looking through all the products you 
+    <br>
+    <i>definitely need in your make-up collection</i>
+    <br>
+    while watching videos from Youtube's beauty community.</p>
+    <button id="lets-go-btn" type="submit">Let's Go!</button>
+  </section> `;
+} 
+
+function renderLandingPage() {
+  const addToHtml = generateLandingPage();
+  $('body').html(addToHtml);
+}
+
+function handleSubmitButton() {
+  let submitbutton = document.getElementById("lets-go-btn");
+  if(submitbutton) {
+      submitbutton.onclick = (function() {
+        renderMainPage();
+      });
+    };
+}
+
+function generateMainPage() {
+  console.log('generateMainPage ran');
+  return `
+  <img id="muym-title" src="images/muym-title.png" alt="An image of the website's title, Make-Up Your Mind, and logo, a brain with eyelashes">
+
+  <form id="js-form">
+    <section id="searchterm-brand">
+      <label class="search-term" for="product-type" id="just-looking-at">Just Looking At</label>
+      <input class="product-type input" type="text" name="product-type" id="makeup-type" placeholder="Make-Up Type" list="product-type-list">
+        <datalist id="product-type-list">
+            <option value="Blush">
+            <option value="Bronzer">
+            <option value="Eyebrow">
+            <option value="Eyeliner">
+            <option value="Eyeshadow">
+            <option value="Foundation">
+            <option value="Lip Liner">
+            <option value="Lipstick">
+            <option value="Mascara">
+            <option value="Nail Polish">
+        </datalist>
+
+      <label class="search-term" for="brand" id="from">From</label>
+      <input class="brand input" type="text" name="brand" id="brand" placeholder="Brand" list="brand-list">
+        <datalist id="brand-list">
+            <option value="Almay">
+            <option value="Alva">
+            <option value="Anna Sui">
+            <option value="Annabelle">
+            <option value="Benefit">
+            <option value="Boosh">
+            <option value="Burt's Bees">
+            <option value="Butter London">
+            <option value="C'est Moi">
+            <option value="Cargo Cosmetics">
+            <option value="China Glaze">
+            <option value="Clinique">
+            <option value="Coastal Classic Creation">
+            <option value="Colourpop">
+            <option value="Covergirl">
+            <option value="Dalish">
+            <option value="Deciem">
+            <option value="Dior">
+            <option value="Dr. Hauschka">
+            <option value="e.l.f">
+            <option value="Essie">
+            <option value="Fenty">
+            <option value="Glossier">
+            <option value="Green People">
+            <option value="Iman">
+            <option value="L'oreal">
+            <option value="Lotus Cosmetics USA">
+            <option value="Maia's Mineral Galaxy">
+            <option value="Marcelle">
+            <option value="Marienatie">
+            <option value="Maybelline">
+            <option value="Milani">
+            <option value="Mineral Fusion">
+            <option value="Misa">
+            <option value="Mistura">
+            <option value="Moov">
+            <option value="Nudus">
+            <option value="NYX">
+            <option value="ORLY">
+            <option value="Pacifica">
+            <option value="Penny Lane Organics">
+            <option value="Physicians Formula">
+            <option value="Piggy Paint">
+            <option value="Pure Anada">
+            <option value="Rejuva Minerals">
+            <option value="Revlon">
+            <option value="Sally B's Skin Yummies">
+            <option value="Salon Perfect">
+            <option value="Sante">
+            <option value="Sinful Colours">
+            <option value="Smashbox">
+            <option value="Stila">
+            <option value="Suncoat">
+            <option value="w3llpeople">
+            <option value="wet n wild">
+            <option value="Zorah">
+            <option value="Zorah Biocosmetiques">
+        </datalist>
+    </section>
+
+    <section id="min-max">
+      <label class="search-term" for="min-price" id="min">Minimum $</label>
+      <input class="min-price input" type="number" name="min-price" id="min-price-input" placeholder="0">
+
+      <label class="search-term" for="max-price" id="max">Maximum $</label>
+      <input class="max-price input" type="number" name="max-price" id="max-price-input" placeholder="25">
+    </section>
+
+      <input id="submit-btn" type="submit" value="Show Me The Make-Up">
+
+  </form>
+
+    <p id="js-error-message" class="error-message"></p>
+
+    <section id="yt-results" class="hidden">
+      <h2 id="yt-results-title">⋯ Videos ⋯</h2>
+      <h2 id="sorry-msg-yt"></h2>
+      <ul id="yt-results-list">
+      </ul>
+    </section>
+
+    <section id="results" class="hidden">
+      <h2 id="results-title">⋯ Products ⋯</h2>
+      <h2 id="sorry-msg"></h2>
+      <ul id="results-list">
+      </ul>
+    </section>
+  
+    <div id="youtubeModal">
+      <div class="modal-content">
+        <span class="videoClose">&times;</span>
+      </div>
+    </div> `;
+}
+
+function renderMainPage() {
+  const addToHtml = generateMainPage();
+  $('body').html(addToHtml);
+  watchForm();
+}
+
+function initApp() {
+  renderLandingPage();
+  handleSubmitButton();
+}
+
+initApp();
